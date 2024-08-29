@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Emotion Recognition Project</title>
+    <!-- Importar fuente Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            src: url('https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Mu4mxK.woff2') format('woff2');
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            color: #0073e6;
+        }
+
+        .audio-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 50px;
+        }
+
+        .audio-table th, .audio-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .audio-table th {
+            background-color: #0073e6;
+            color: white;
+        }
+
+        .audio-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .audio-table td {
+            font-size: 14px;
+            vertical-align: middle;
+        }
+
+        .audio-table td audio {
+            width: 300px;
+            margin: 5px auto;
+            display: block;
+        }
+
+        .description, .upcoming, .section {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .section {
+            border: 1px solid #ddd;
+            padding: 30px;
+            border-radius: 12px;
+            width: calc(100% - 40px); /* Asegura que la sección no se salga del contenedor */
+            box-sizing: border-box; /* Incluye el padding y borde dentro del ancho total */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            margin: 60px auto 60px  auto; /* Centra la sección dentro del contenedor */
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+            color: #005bb5;
+        }
+
+        .section img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .section .image-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .section .image-row img {
+            max-width: 45%;
+            margin: 0 10px;
+        }
+
+        .section .image-row img:first-child {
+            max-width: 55%; /* Ajuste del tamaño de la gráfica de resultados */
+        }
+
+        .badges {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .badges img {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .social-links {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .social-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #0073e6;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .social-links img {
+            width: 25px;
+            height: 25px;
+            margin-right: 8px;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Spanish Speech Emotion Recognition</h1>
+
+        <div class="description">
+            <p>Predicción de emociones en el habla (SER) en español con un 89-20% de precisión, realizando Fine-Tuning al modelo wav2vec2.</p>
+        </div>
+
+        <h2>Resultados del Modelo</h2>
+        <table class="audio-table">
+            <tr>
+                <th>Audio</th>
+                <th>Emoción Predicha</th>
+            </tr>
+            <!-- Ejemplo 1 -->
+            <tr>
+                <td>
+                    <audio controls>
+                        <source src="wavs/sadness01.wav" type="audio/wav">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </td>
+                <td>Tristeza</td>
+            </tr>
+            <!-- Ejemplo 2 -->
+            <tr>
+                <td>
+                    <audio controls>
+                        <source src="wavs/anger01.mp3" type="audio/mp3">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </td>
+                <td>Enojo</td>
+            </tr>
+            <!-- Ejemplo 3 -->
+            <tr>
+                <td>
+                    <audio controls>
+                        <source src="wavs/fear02.wav" type="audio/wav">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </td>
+                <td>Miedo</td>
+            </tr>
+            <!-- Ejemplo 4 -->
+            <tr>
+                <td>
+                    <audio controls>
+                        <source src="wavs/happ01.wav" type="audio/wav">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </td>
+                <td>Felicidad</td>
+            </tr>
+            <!-- Ejemplo 5 -->
+            <tr>
+                <td>
+                    <audio controls>
+                        <source src="wavs/sur01.WAV" type="audio/WAV">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </td>
+                <td>Sopresa</td>
+            </tr>
+        </table>
+
+        <!-- Nueva Sección: Cómo se Creó el Proyecto -->
+        <div class="section">
+            <h2>Desarrollo del proyecto</h2>
+
+            <h3>1. Bases de Datos</h3>
+            <p>Para entrenar y ajustar el modelo, se emplearon las bases de datos MESD, EmoMatchSpanishDB y spanishMeaCorpus.</p>
+            
+            <h3>2. Wav2Vec2</h3>
+            <p>Este proyecto utiliza el modelo Wav2Vec2-XLSR-53-Large - Spanish para el reconocimiento de emociones. El modelo está ajustado para clasificar las siguientes emociones: Alegría, Tristeza, Enojo, Miedo, Neutral, Disgusto.</p>
+            <img src="assets/w2v2.png" alt="Modelo Wav2Vec2">
+
+            <h3>3. Resultados</h3>
+            <p>El modelo alcanza una precisión del 89.20% en el conjunto de prueba.</p>
+            
+            <!-- Fila de imágenes centradas -->
+            <div class="image-row">
+                <img src="assets/graphs.png" alt="Gráfico de Resultados">
+                <img src="assets/confusion_matrix.png" alt="Matriz de Confusión">
+            </div>
+        </div>
+
+        <div class="badges">
+            <h2>Herramientas Utilizadas</h2>
+            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+            <img src="https://img.shields.io/badge/Wav2Vec2-black?style=for-the-badge" alt="Wav2Vec2">
+            <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow">
+            <img src="https://img.shields.io/badge/TensorBoard-FF6F00?style=for-the-badge&logo=tensorboard&logoColor=white" alt="TensorBoard">
+            <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
+            <img src="https://img.shields.io/badge/NLP-black?style=for-the-badge" alt="NLP">
+            <img src="https://img.shields.io/badge/Librosa-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Librosa">
+            <img src="https://img.shields.io/badge/Transformers-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" alt="Transformers">
+            <img src="https://img.shields.io/badge/sklearn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="sklearn">
+        </div>
+
+        <div class="social-links">
+            <a href="https://github.com/alxmares" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/alxmrs/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">LinkedIn
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
