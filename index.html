@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         @font-face {
-            font-family: 'Roboto';
-            src: url('https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Mu4mxK.woff2') format('woff2');
+        font-family: 'Roboto';
+        src: url('https://fonts.gstatic.com/s/roboto/v32/KFOmCnqEu92Fr1Mu4mxK.woff2') format('woff2');
         }
 
         body {
@@ -30,6 +30,7 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%; /* Asegura que el contenedor sea responsivo */
         }
 
         h1, h2, h3 {
@@ -64,9 +65,19 @@
         }
 
         .audio-table td audio {
-            width: 300px;
+            width: 90%; /* Usa más espacio para el audio */
             margin: 5px auto;
             display: block;
+        }
+
+        .audio-table th:nth-child(1), 
+        .audio-table td:nth-child(1) {
+            width: 70%; /* Mayor espacio para la columna de audio */
+        }
+
+        .audio-table th:nth-child(2), 
+        .audio-table td:nth-child(2) {
+            width: 30%; /* Menor espacio para la columna de texto */
         }
 
         .description, .upcoming, .section {
@@ -78,22 +89,16 @@
             border: 1px solid #ddd;
             padding: 30px;
             border-radius: 12px;
-            width: calc(100% - 40px); /* Asegura que la sección no se salga del contenedor */
-            box-sizing: border-box; /* Incluye el padding y borde dentro del ancho total */
+            width: 100%; /* Ajusta la sección para que ocupe todo el ancho disponible */
+            box-sizing: border-box;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            margin: 60px auto 60px  auto; /* Centra la sección dentro del contenedor */
-        }
-
-        .section h2 {
-            margin-bottom: 20px;
-            color: #005bb5;
+            margin: 40px 0;
         }
 
         .section img {
-            max-width: 100%;
+            max-width: 100%; /* Asegura que la imagen no se desborde */
             height: auto;
-            margin: 20px auto;
-            display: block;
+            margin: 20px 0; /* Añade margen superior e inferior */
         }
 
         .section .image-row {
@@ -101,15 +106,18 @@
             justify-content: center;
             align-items: center;
             margin-top: 20px;
+            flex-wrap: wrap; /* Permite que las imágenes se ajusten en pantallas más pequeñas */
         }
 
         .section .image-row img {
-            max-width: 45%;
-            margin: 0 10px;
+            width: 100%;
+            max-width: 300px; /* Ajusta el tamaño máximo de las imágenes */
+            height: auto;
+            margin: 10px;
         }
 
         .section .image-row img:first-child {
-            max-width: 55%; /* Ajuste del tamaño de la gráfica de resultados */
+            max-width: 100%; /* Asegura que la imagen no se desborde */
         }
 
         .badges {
@@ -118,7 +126,7 @@
         }
 
         .badges img {
-            margin: 0 10px;
+            margin: 5px;
             display: inline-block;
         }
 
@@ -128,14 +136,22 @@
         }
 
         .social-links a {
-            margin: 0 15px;
+            margin: 10px;
             text-decoration: none;
             color: #0073e6;
-            font-size: 20px;
-            display: flex;
+            font-size: 16px;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid #0073e6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #0073e6;
+            color: white;
         }
 
         .social-links img {
@@ -144,8 +160,34 @@
             margin-right: 8px;
         }
 
-        .social-links a:hover {
-            text-decoration: underline;
+        /* Media Queries para Responsividad */
+        @media screen and (max-width: 600px) {
+            .audio-table td audio {
+                width: 100%;
+            }
+
+            .audio-table th:nth-child(1), 
+            .audio-table td:nth-child(1) {
+                width: 60%;
+            }
+
+            .audio-table th:nth-child(2), 
+            .audio-table td:nth-child(2) {
+                width: 40%;
+            }
+
+            .section .image-row img {
+                max-width: 100%; /* Ajusta la imagen para que no se salga en pantallas pequeñas */
+            }
+
+            .social-links a {
+                flex-direction: column;
+                margin: 10px 0;
+            }
+
+            .social-links img {
+                margin-bottom: 5px;
+            }
         }
         
     </style>
@@ -156,7 +198,7 @@
         <h1>Spanish Speech Emotion Recognition</h1>
 
         <div class="description">
-            <p>Predicción de emociones en el habla (SER) en español con un 89-20% de precisión, realizando Fine-Tuning al modelo wav2vec2.</p>
+            <p>Predicción de emociones en el habla (SER) en español con un 89.20% de precisión, realizando Fine-Tuning al modelo wav2vec2.</p>
         </div>
 
         <h2>Resultados del Modelo</h2>
@@ -257,6 +299,9 @@
             </a>
             <a href="https://www.linkedin.com/in/alxmrs/" target="_blank">
                 <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">LinkedIn
+            </a>
+            <a href="https://alxmares.github.io" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/270/270798.png" alt="GitHub Pages">All Projects
             </a>
         </div>
     </div>
